@@ -33,9 +33,9 @@ void loop(void)
   cli(); // Disable interrupts because we dont want any more after we retrieved our data
   
   /* Had to do research on this, but the reference manual for this sensor states the
-    calculation formula is Frequency = 56*Q, where Q is the Mass Flow Rate
+    calculation formula is Frequency = 4.6*Q(Units of Flow)*t(time in seconds), where Q is the Mass Flow Rate
   */
-  massFlowRate = rotorFrequency/56; // Gives us Flow Rate in Litres per minute
+  massFlowRate = ((rotorFrequency/4.6)*60); // Gives us Flow Rate in Litres per minute
   Serial.print(massFlowRate);
   Serial.print(" Litres/minute");
 }
